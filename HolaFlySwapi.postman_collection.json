@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "78a036f8-5cdc-46f9-b103-045f56dd28dd",
+		"name": "HolaFlySwapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12211270"
+	},
+	"item": [
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/hfswapi/test",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"test"
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "d",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPeople",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/hfswapi/getPeople/3",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getPeople",
+						"3"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "wookiee",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPlanet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/hfswapi/getPlanet/6",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getPlanet",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWeightOnPlanetRandom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/hfswapi/getWeightOnPlanetRandom",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getWeightOnPlanetRandom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/hfswapi/getLogs",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"hfswapi",
+						"getLogs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
