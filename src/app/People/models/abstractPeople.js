@@ -64,7 +64,6 @@ class AbstractPeople {
             console.log('ERROR - Calculo de peso en planeta natal');
             return 'ERROR';
         }
-        console.log(planet.getGravity());
         if (
             this.mass === 'unknown' ||
             planet.getGravity() === 'unknown' ||
