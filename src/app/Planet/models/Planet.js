@@ -14,8 +14,7 @@ class Planet {
         const planetData = await swapiFunctions.genericRequest(
             `${swUrl}/planets/${this.id}`,
             'GET',
-            null,
-            true
+            null
         );
         
         this.name = planetData.name;

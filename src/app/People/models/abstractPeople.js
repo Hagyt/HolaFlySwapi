@@ -8,23 +8,21 @@ class AbstractPeople {
         }
     }
 
-    async init(){
+    async init() {
         const swUrl = 'https://swapi.dev/api';
 
         // Se obtiene data de persona
         const personData = await swapiFunctions.genericRequest(
             `${swUrl}/people/${this.id}`,
             'GET',
-            null,
-            true
+            null
         );
 
         // Se obtiene data de planeta
         const homeWorldData = await swapiFunctions.genericRequest(
             personData.homeworld,
             'GET',
-            null,
-            true
+            null
         );
         const homeWorldId = personData.homeworld.split('api/')[1]
         this.name = personData.name;

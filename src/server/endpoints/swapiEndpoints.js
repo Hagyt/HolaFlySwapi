@@ -26,14 +26,26 @@ const applySwapiEndpoints = (server, app) => {
         if (!lang) lang = 'common';
 
         try {
+            lang = lang.toLowerCase();
             const person = await app.People.services.findPersonById(req.params.id, lang);
-            res.send({
-                name: person.getName(),
-                mass: person.getMass(),
-                height: person.getHeight(),
-                homeworldName: person.getHomeworldName(),
-                homeworldId: person.getHomeworldId(),
-            });
+
+            if (lang === 'wookiee') {
+                res.send({
+                    whrascwo: person.getName(),
+                    scracc: person.getMass(),
+                    acwoahrracao: person.getHeight(),
+                    acooscwoohoorcanwa_whrascwo: person.getHomeworldName(),
+                    acooscwoohoorcanwa: person.getHomeworldId(),
+                });
+            } else {
+                res.send({
+                    name: person.getName(),
+                    mass: person.getMass(),
+                    height: person.getHeight(),
+                    homeworldName: person.getHomeworldName(),
+                    homeworldId: person.getHomeworldId(),
+                });
+            }
         } catch (error) {
             console.log(error.stack);
             res.status(500).send({
