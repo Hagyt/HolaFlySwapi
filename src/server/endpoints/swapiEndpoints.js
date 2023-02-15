@@ -27,14 +27,13 @@ const applySwapiEndpoints = (server, app) => {
 
         try {
             const person = await app.People.services.findPersonById(req.params.id, lang);
-            responseData = {
+            res.send({
                 name: person.getName(),
                 mass: person.getMass(),
                 height: person.getHeight(),
                 homeworldName: person.getHomeworldName(),
                 homeworldId: person.getHomeworldId(),
-            }
-            res.send(responseData);
+            });
         } catch (error) {
             console.log(error.stack);
             res.status(500).send({
@@ -44,7 +43,18 @@ const applySwapiEndpoints = (server, app) => {
     });
 
     server.get('/hfswapi/getPlanet/:id', async (req, res) => {
-        res.sendStatus(501);
+        try {
+            const planet = await app.Planet.services.findPlanetById(req.params.id);
+            res.send({
+                name: planet.getName(),
+                gravity: planet.getGravity()
+            });
+        } catch (error) {
+            console.log(error.stack);
+            res.status(500).send({
+                message: 'Error no controlado, contactar administrador'
+            })
+        }
     });
 
     server.get('/hfswapi/getWeightOnPlanetRandom', async (req, res) => {
