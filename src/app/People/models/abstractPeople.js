@@ -59,8 +59,23 @@ class AbstractPeople {
         return this.homeworldId;
     }
 
-    getWeightOnPlanet(planetId){
-        throw new Error('To be implemented');
+    getWeightOnPlanet(planet){
+        if (planet.getId() == this.homeworldId.split('/')[1]) {
+            console.log('ERROR - Calculo de peso en planeta natal');
+            return 'ERROR';
+        }
+        console.log(planet.getGravity());
+        if (
+            this.mass === 'unknown' ||
+            planet.getGravity() === 'unknown' ||
+            isNaN(planet.getGravity())
+        ) {
+            return 'unknown';  
+        }
+        return swapiFunctions.getWeightOnPlanet(
+            parseFloat(this.mass),
+            planet.getGravity()
+        );
     }
 }
 

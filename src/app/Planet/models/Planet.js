@@ -17,9 +17,13 @@ class Planet {
             null,
             true
         );
-        const gravity = parseFloat(planetData.gravity.split(' ')[0]);
+        
         this.name = planetData.name;
-        this.gravity = isNaN(gravity) ? 0 : gravity;
+
+        // Se normaliza gravedad
+        const gravity = parseFloat(planetData.gravity.split(' ')[0]);
+        this.gravity = isNaN(gravity) ? 'unknown' : gravity;
+        
     }
 
     getId() {

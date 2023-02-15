@@ -38,7 +38,7 @@ const applySwapiEndpoints = (server, app) => {
             console.log(error.stack);
             res.status(500).send({
                 message: 'Error no controlado, contactar administrador'
-            })
+            });
         }
     });
 
@@ -53,12 +53,28 @@ const applySwapiEndpoints = (server, app) => {
             console.log(error.stack);
             res.status(500).send({
                 message: 'Error no controlado, contactar administrador'
-            })
+            });
         }
     });
 
     server.get('/hfswapi/getWeightOnPlanetRandom', async (req, res) => {
-        res.sendStatus(501);
+        try {
+            const personWeight = await app.People.services.getWeightOnPlanetRandom();
+            if (personWeight === 'ERROR') {
+                res.status(422).send({
+                    message:
+                        'Se ha intentado calcular el peso de un personaje en su planeta natal'
+                })
+            }
+            res.send({
+                personWeight: personWeight
+            });
+        } catch (error) {
+            console.log(error.stack);
+            res.status(500).send({
+                message: 'Error no controlado, contactar administrador'
+            });
+        }
     });
 
     server.get('/hfswapi/getLogs',async (req, res) => {
