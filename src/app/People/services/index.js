@@ -59,7 +59,7 @@ const getWeightOnPlanetRandom = async () => {
         `Persona seleccionada. Id: ${person.getId()} Nombre: ${person.getName()} Mass: ${person.getMass()}`
     );
 
-    const planet = await Planet.services.findPlanetById(5);
+    const planet = await Planet.services.findPlanetById(randomPlanetId);
     console.log(
         `Planeta seleccionado. Id: ${planet.getId()} Nombre: ${planet.getName()} Gravity: ${planet.getGravity()}`
     );
